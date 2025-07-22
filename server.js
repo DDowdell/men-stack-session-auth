@@ -30,16 +30,16 @@ app.use(express.urlencoded({ extended: false }));
 app.use(methodOverride('_method'));
 // Morgan for logging HTTP requests
 app.use(morgan('dev'));
-app.use('/auth', authController);
 app.use(methodOverride("_method"));
 app.use(morgan('dev'));
 app.use(
-  session({
-    secret: process.env.SESSION_SECRET,
-    resave: false,
-    saveUninitialized: true,
-  })
+    session({
+        secret: process.env.SESSION_SECRET,
+        resave: false,
+        saveUninitialized: true,
+    })
 );
+app.use('/auth', authController);
 
 
 //Routes below==================================================================
